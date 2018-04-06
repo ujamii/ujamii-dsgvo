@@ -1,0 +1,20 @@
+{
+    "name": "ujamii/ujamii-dsgvo",
+    "type": "typo3-cms-extension",
+    "description": "DSGVO compliance extension for TYPO3",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Grundk\u00f6tter",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^8.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ujamii\\UjamiiDsgvo\\": "Classes"
+        }
+    }
+}

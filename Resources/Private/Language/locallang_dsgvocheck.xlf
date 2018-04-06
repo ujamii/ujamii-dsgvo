@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-04-06T10:22:15Z" product-name="ujamii_dsgvo">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab">
+				<source>DSGVO</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr">
+				<source>DSGVO compliance tools</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tablabel">
+				<source>DSGVO</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
