@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="ujamii_dsgvo">
+		<header/>
+		<body>
+			<trans-unit id="module.title" xml:space="preserve">
+				<source>Data privacy compliance helper</source>
+			</trans-unit>
+			<trans-unit id="module.notloaded" xml:space="preserve">
+				<source>Extension is not intstalled.</source>
+			</trans-unit>
+			<trans-unit id="module.table" xml:space="preserve">
+				<source>Table</source>
+			</trans-unit>
+			<trans-unit id="module.delete" xml:space="preserve">
+				<source>Delete all records</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
