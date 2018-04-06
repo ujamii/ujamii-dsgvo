@@ -105,6 +105,10 @@ not via extbase models.
 * add a crawler like guzzle to really check the frontend of the website for several things:
 	* SSL secured connection if forms are used
 	* are permanent cookies used for tracking services like GA, etracker, piwik a.s.o.
+* this extension only works in 8.7 LTS and up as in 7.6 there was no doctrine included in the core. So if someone
+wants to contribute and make it work in 7.6, feel free to improve `Classes/Service/DbOperationsService.php` and 
+create a PR on GitHub
+* test the extension in TYPO3 9 
 
 
 Icon credits
