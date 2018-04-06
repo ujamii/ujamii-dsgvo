@@ -82,7 +82,7 @@ module.tx_ujamiidsgvo_dsgvocheck {
             powermail {
                 tx_powermail_domain_model_mail {
                     allDeleted = 1
-                    andWhere = crdate < DATE_SUB(now(), INTERVAL 6 MONTH)
+                    andWhere = crdate < UNIX_TIMESTAMP(DATE_SUB(now(), INTERVAL 6 MONTH))
                 }
             }
         }
