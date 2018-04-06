@@ -95,7 +95,17 @@ To see which tables are covered by default, take a look into `ujamii_dsgvo/Confi
 TODOs / Known issues
 -------------------------
 
-* linked records (FAL, categories, ...) are ignored as the deletion process does it directly in the database, not via extbase models.
+* linked records (FAL, categories, ...) are ignored as the deletion process does it directly in the database, 
+not via extbase models.
+* add checks that could be done directly in the backend
+	* check if the sentry extension or other logging extensions are installed and if, check if data transmission 
+	is done via secure connection
+	* check whether all the logging processes omit or anonymize the IP address
+	* check whether secure mail sending config is used
+* add a crawler like guzzle to really check the frontend of the website for several things:
+	* SSL secured connection if forms are used
+	* are permanent cookies used for tracking services like GA, etracker, piwik a.s.o.
+
 
 Icon credits
 -------------------------
