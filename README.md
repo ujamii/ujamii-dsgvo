@@ -40,6 +40,9 @@ Installation
 Usage
 -------------------------
 
+1. [Data cleaning](#in-the-typo3-backend)
+2. [Cookie consent](#cookie-consent)
+
 ### In the TYPO3 backend
 
 Click on the module icon in the main backend menu (inside "web"). You will see an overview for each configured
@@ -65,8 +68,7 @@ array(5 items)
 	comments => FALSE
 ```
 
-Extend the database cleaning
--------------------------
+### Extend the database cleaning
 
 To extend the database cleaning which could be done in the backend or via CLI/Scheduler, you just need to write
 some typoscript and add it into the **pageTS** of your website.
@@ -96,7 +98,38 @@ module.tx_ujamiidsgvo_dsgvocheck {
 }
 ```
 
-To see which tables are covered by default, take a look into `ujamii_dsgvo/Configuration/TypoScript/pagets.ts`.
+To see which tables are covered by default, take a look into the [pagets.ts](ujamii_dsgvo/Configuration/TypoScript/pagets.ts).
+
+Cookie consent
+-------------------------
+
+If you use cookies on your website, you will at least have to notify your users and provide an opt-out to cookies
+that are not essential to the website/service itself and/or contain some sort of private information of
+the user. Sadly, even dynamic IP addresses are considered a private value of information (at least in Germany).
+
+So utilizing a third party ready-to-use solution may be enough for you. This extension provides an example
+based on [cookieconsent.insites.com](https://cookieconsent.insites.com/).
+To use it in your TYPO3 project, just copy the [partial template](Resources/Private/Partials/Frontend/CookieConsent.html).
+to your project partial path and then include it in your fluid template like this:
+```html
+<f:render partial="Frontend/CookieConsent" />
+```
+If you want to directly use the example, just add the partial folder to your fluid paths:
+```typo3_typoscript
+10 = FLUIDTEMPLATE
+10 {
+	file = ...
+	partialRootPaths {
+		0 = ...
+		1 = EXT:ujamii_dsgvo/Resources/Private/Partials/
+	}
+	layoutRootPaths.0 = ...
+}
+```
+
+To configure the target page, just set `page.privacyInfo = xyz` in your **typoscript constants**,
+where `xyz` is the uid of the page. If you want to change how this cookie consent is included,
+have a look at the [setup.ts](Configuration/TypoScript/setup.ts)
 
 TODOs / Known issues
 -------------------------
