@@ -1,6 +1,12 @@
 # ujamii-dsgvo
 Data privacy/DSGVO compliance extension for TYPO3
 
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Extending the database cleaning](#extend-the-database-cleaning)
+5. [Credits](#icon-credits)
+
 Description
 -------------------------
 
@@ -94,6 +100,8 @@ To see which tables are covered by default, take a look into `ujamii_dsgvo/Confi
 
 TODOs / Known issues
 -------------------------
+
+Have a look at the [issues list on GitHub](https://github.com/ujamii/ujamii-dsgvo/issues).
 
 * linked records (FAL, categories, ...) are ignored as the deletion process does it directly in the database, 
 not via extbase models.
