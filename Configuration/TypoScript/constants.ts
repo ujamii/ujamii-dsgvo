@@ -1,4 +1,3 @@
-
 module.tx_ujamiidsgvo_dsgvocheck {
     view {
         # cat=module.tx_ujamiidsgvo_dsgvocheck/file; type=string; label=Path to template root (BE)
@@ -13,3 +12,6 @@ module.tx_ujamiidsgvo_dsgvocheck {
         storagePid =
     }
 }
+
+# the target page uid with all the privacy information
+page.privacyInfo =

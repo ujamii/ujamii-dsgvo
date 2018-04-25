@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<script>
+	window.addEventListener("load", function(){
+		window.cookieconsent.initialise({
+			"palette": {
+				"popup": {
+					"background": "#000"
+				},
+				"button": {
+					"background": "#75ac1f",
+					"text": "#ffffff"
+				}
+			},
+			"position": "top",
+			"static": true,
+			"content": {
+				"message": "Diese Webseite verwendet Cookies. Das können Sie abschalten, wenn Sie möchten:",
+				"dismiss": "Verstanden",
+				"link": "Zum Datenschutz",
+				"href": "<f:cObject typoscriptObjectPath='lib.marks.PRIVACY-PAGE'/>"
+			}
+		})});
+</script>
+
+</html>
