@@ -42,6 +42,9 @@ Usage
 
 1. [Data cleaning](#in-the-typo3-backend)
 2. [Cookie consent](#cookie-consent)
+3. [Opt Out for Cookies](#opt-out-for-cookies)
+	1. [Google Analytics](#google-analytics)
+	2. [Matomo (Piwki)](#matomo-(formerly-piwik))
 
 ### In the TYPO3 backend
 
@@ -130,6 +133,37 @@ If you want to directly use the example, just add the partial folder to your flu
 To configure the target page, just set `page.privacyInfo = xyz` in your **typoscript constants**,
 where `xyz` is the uid of the page. If you want to change how this cookie consent is included,
 have a look at the [setup.ts](Configuration/TypoScript/setup.ts)
+
+Opt Out for Cookies
+-------------------------
+
+## Google Analytics
+
+To opt out for tracking cookies, you need to add [some lines of JavaScript code](Resources/Private/Partials/Frontend/AnalyticsOptOut.js)
+and provide a link or button for the user which triggers the Opt Out functionality. In the TYPO3 backend, this could easily done by
+creating a new content element on the privacy information page. Add a new element of type **"HTML"** and paste something like the 
+example below: (assuming using Bootstrap CSS)
+
+```html
+<a href="javascript:gaOptout();window.alert('Tracking has been disabled.');" class="btn btn-danger">I do not want to be tracked</a>
+<a href="javascript:gaOptout();window.alert('Tracking wurde deaktiviert.');" class="btn btn-danger">Ich will nicht getrackt werden</a>
+```
+
+You may want to add a more detailed description like:
+
+> You can deactivate Google Analytics tracking. To deactivate it, please click the button below. 
+> A cookie will be created in your Browser. If it is set, Google Analytics will no longer log any data.
+
+or in German:
+
+> Sie können das Web-Tracking von Google Analytics abschalten. Klicken Sie dazu auf den unten stehenden Button. 
+> Es wird dann ein Cookie in Ihrem Browser gesetzt. Wenn der Cookie erstellt wurde, wird Google Analytics keine Daten mehr erheben.
+
+## Matomo (formerly Piwik)
+
+Matomo provides a ready-to-use snippet directly inside the tracking application itself, so just follow the
+[instructions on their website](https://matomo.org/docs/privacy/#step-3-include-a-web-analytics-opt-out-feature-on-your-site-using-an-iframe)
+and you're done. 
 
 TODOs / Known issues
 -------------------------
