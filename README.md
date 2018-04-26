@@ -36,7 +36,7 @@ Installation
 1. Get the files
 	1. install via composer: `composer require ujamii/ujamii-dsgvo`
 	2. install via archive: [Download](https://github.com/ujamii/ujamii-dsgvo/releases) and extract in `typo3conf` directory, rename folder to ujamii_dsgvo 
-2. activate the extension in the backend (may need to clear the [autoloading cache](#command-controller-is-not-available-in-cli/scheduler-after-installation-of-the-extension)
+2. activate the extension in the backend (may need to clear the [autoloading cache](#command-controller-is-not-available-in-clischeduler-after-installation-of-the-extension)
 3. a new submodule "DSGVO" in the main module "web" will appear
 
 Usage
