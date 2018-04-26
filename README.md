@@ -33,9 +33,11 @@ and delete "deleted" records as well as older data submitted in forms.
 Installation
 -------------------------
 
-* install via composer: `composer require ujamii/ujamii-dsgvo`
-* activate the extension in the backend
-* a new submodule "DSGVO" in the main module "web" will appear
+1. Get the files
+	1. install via composer: `composer require ujamii/ujamii-dsgvo`
+	2. install via archive: [Download](https://github.com/ujamii/ujamii-dsgvo/releases) and extract in `typo3conf` directory, rename folder to ujamii_dsgvo 
+2. activate the extension in the backend (may need to clear the [autoloading cache](#command-controller-is-not-available-in-cli/scheduler-after-installation-of-the-extension)
+3. a new submodule "DSGVO" in the main module "web" will appear
 
 Usage
 -------------------------
@@ -170,21 +172,15 @@ TODOs / Known issues
 
 Have a look at the [issues list on GitHub](https://github.com/ujamii/ujamii-dsgvo/issues).
 
-* linked records (FAL, categories, ...) are ignored as the deletion process does it directly in the database, 
-not via extbase models.
-* add checks that could be done directly in the backend
-	* check if the sentry extension or other logging extensions are installed and if, check if data transmission 
-	is done via secure connection
-	* check whether all the logging processes omit or anonymize the IP address
-	* check whether secure mail sending config is used
-* add a crawler like guzzle to really check the frontend of the website for several things:
-	* SSL secured connection if forms are used
-	* are permanent cookies used for tracking services like GA, etracker, piwik a.s.o.
-* this extension only works in 8.7 LTS and up as in 7.6 there was no doctrine included in the core. So if someone
-wants to contribute and make it work in 7.6, feel free to improve `Classes/Service/DbOperationsService.php` and 
-create a PR on GitHub
-* test the extension in TYPO3 9 
+### Command controller is not available in CLI/Scheduler after installation of the extension
+If you do **NOT** use TYPO3 in composer mode and installed the extension via archive download, you may need to clear the autoloading
+cache of TYPO3 manually, after installing the extension in the extension manager. Do so by executing
 
+```shell
+php typo3/cli_dispatch.phpsh extbase extension:dumpclassloadinginformation
+# or
+rm -rf typo3temp/autoload/*
+```
 
 Icon credits
 -------------------------
