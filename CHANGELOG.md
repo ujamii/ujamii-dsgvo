@@ -1,3 +1,7 @@
+## 0.3.0 (April 26, 2018)
+  - [RELEASE] adjusted dependency and version info
+  - [FEATURE] fixes #4 (TYPO3 7.6LTS compat)
+
 ## 0.2.0 (April 26, 2018)
   - [FEATURE] added cookie opt out example and doc
   - [DOC] fixed file link
