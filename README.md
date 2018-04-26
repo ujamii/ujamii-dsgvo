@@ -98,7 +98,7 @@ module.tx_ujamiidsgvo_dsgvocheck {
 }
 ```
 
-To see which tables are covered by default, take a look into the [pagets.ts](ujamii_dsgvo/Configuration/TypoScript/pagets.ts).
+To see which tables are covered by default, take a look into the [pagets.ts](Configuration/TypoScript/pagets.ts).
 
 Cookie consent
 -------------------------
