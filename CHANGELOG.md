@@ -1,3 +1,13 @@
+## 0.4.0 (May 10, 2018)
+  - [DOC] added doc part for new anonymization mode
+  - [FEATURE] set MODE_ANONYMIZE instead of MODE_DELETE as default action
+  - [FEATURE] added anonymization mode for v7 (legacy)
+  - [FEATURE] added anonymization mode for v8 in be module
+  - [FEATURE] added anonymization mode for v8 on cli
+  - [DOC] fixed link
+  - [DOC] added alternative installation guide via archive file
+  - [DOC] removed TODOs from readme (see GitHub issues)
+
 ## 0.3.0 (April 26, 2018)
   - [RELEASE] adjusted dependency and version info
   - [FEATURE] fixes #4 (TYPO3 7.6LTS compat)
