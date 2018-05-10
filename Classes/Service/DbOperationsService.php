@@ -168,6 +168,20 @@ class DbOperationsService {
 				$where .= ' ' . $table . '.' . $GLOBALS['TCA'][ $table ]['ctrl']['delete'] . ' = 1';
 			}
 
+			// add where part to skip handled records
+			$whereAnds = [];
+			foreach ($this->ctrlTimeFields as $ctrlField) {
+				if (! empty( $GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField] ) ) {
+					$whereAnds[] = $table . '.' . $GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField] . ' != 0';
+				}
+			}
+			if (!empty($whereAnds)) {
+				if (!empty($where)) {
+					$where = '(' . $where . ') AND ';
+				}
+				$where .= implode(' AND ', $whereAnds);
+			}
+
 			switch ( $mode ) {
 				default:
 				case self::MODE_SELECT:
@@ -184,6 +198,33 @@ class DbOperationsService {
 						return $db->sql_affected_rows();
 					} else {
 						return 0;
+					}
+					break;
+
+				case self::MODE_ANONYMIZE:
+					if (empty($tableConfig['anonymize'])) {
+						// may not be defined for certain tables, so skip this table then
+						return 0;
+					} else {
+						$fieldsValues = $tableConfig['anonymize'];
+
+						// set time values to 0 to "mark" handled records
+						foreach ($this->ctrlTimeFields as $ctrlField) {
+							if (! empty( $GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField] ) ) {
+								$fieldsValues[$GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField]] = 0;
+							}
+						}
+
+						$res = $db->exec_UPDATEquery(
+							$table,
+							$where,
+							$fieldsValues
+						);
+						if (false !== $res) {
+							return $db->sql_affected_rows();
+						} else {
+							return 0;
+						}
 					}
 					break;
 			}
