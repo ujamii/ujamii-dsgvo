@@ -46,7 +46,8 @@
 		<div class="form">
 			<div class="form">
 				<div class="form-group">
-					<f:form.submit value="{f:translate(key:'LLL:EXT:ujamii_dsgvo/Resources/Private/Language/locallang_be.xlf:module.delete')}" class="btn btn-danger" />
+					<f:form.button type="submit" class="btn btn-danger" name="mode" value="delete">{f:translate(key:'LLL:EXT:ujamii_dsgvo/Resources/Private/Language/locallang_be.xlf:module.delete')}</f:form.button>
+					<f:form.button type="submit" class="btn btn-warning" name="mode" value="anonymize">{f:translate(key:'LLL:EXT:ujamii_dsgvo/Resources/Private/Language/locallang_be.xlf:module.anonymize')}</f:form.button>
 				</div>
 			</div>
 		</div>

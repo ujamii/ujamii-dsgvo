@@ -13,7 +13,10 @@
 				<target>Tabelle</target>
 			</trans-unit>
 			<trans-unit id="module.delete" xml:space="preserve">
-				<target>Alle Datensätze Löschen</target>
+				<target>Alle Datensätze löschen</target>
+			</trans-unit>
+			<trans-unit id="module.anonymize" xml:space="preserve">
+				<source>Alle Datensätze anonymisieren</source>
 			</trans-unit>
 		</body>
 	</file>
