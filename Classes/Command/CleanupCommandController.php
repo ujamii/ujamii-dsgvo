@@ -29,7 +29,7 @@ class CleanupCommandController extends CommandController {
 	 *
 	 * @throws \Exception
 	 */
-	public function cleanDatabaseCommand($pageUid = 1, $mode = DbOperationsService::MODE_DELETE) {
+	public function cleanDatabaseCommand($pageUid = 1, $mode = DbOperationsService::MODE_ANONYMIZE) {
 		$tsConfig = BackendUtility::getPagesTSconfig( $pageUid );
 		if ( isset( $tsConfig['module.']['tx_ujamiidsgvo_dsgvocheck.'] ) && is_array( $tsConfig['module.']['tx_ujamiidsgvo_dsgvocheck.'] ) ) {
 			$tsConfig = GeneralUtility::removeDotsFromTS( $tsConfig['module.']['tx_ujamiidsgvo_dsgvocheck.'] );

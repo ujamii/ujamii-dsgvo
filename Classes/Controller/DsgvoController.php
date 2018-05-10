@@ -72,7 +72,7 @@ class DsgvoController extends ActionController {
 	 *
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
 	 */
-	public function deleteAction($mode = DbOperationsService::MODE_DELETE) {
+	public function deleteAction($mode = DbOperationsService::MODE_ANONYMIZE) {
 		$this->service->getDbCheckResult( $mode );
 		$this->forward( 'index' );
 	}
