@@ -1,3 +1,8 @@
+## 0.4.1 (May 11, 2018)
+  - [RELEASE] marked 0.4.1 as stable 
+  - [BUGFIX] excluded external assets from compression
+  - [RELEASE] bumped version
+
 ## 0.4.0 (May 10, 2018)
   - [DOC] added doc part for new anonymization mode
   - [FEATURE] set MODE_ANONYMIZE instead of MODE_DELETE as default action
