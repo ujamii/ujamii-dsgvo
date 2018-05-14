@@ -16,7 +16,7 @@
 				<target>Alle Datensätze löschen</target>
 			</trans-unit>
 			<trans-unit id="module.anonymize" xml:space="preserve">
-				<source>Alle Datensätze anonymisieren</source>
+				<target>Alle Datensätze anonymisieren</target>
 			</trans-unit>
 		</body>
 	</file>

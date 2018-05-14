@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext">
+		<header/>
+		<body>
+			<trans-unit id="cookie.dismiss">
+				<source><![CDATA[Dismiss]]></source>
+			</trans-unit>
+			<trans-unit id="cookie.message">
+				<source><![CDATA[This website uses cookies. You can deactivate this, if you like:]]></source>
+			</trans-unit>
+			<trans-unit id="cookie.btn">
+				<source><![CDATA[To the data privacy agreement]]></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
