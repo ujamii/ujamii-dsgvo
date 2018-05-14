@@ -1,3 +1,7 @@
+## 0.4.2 (May 14, 2018)
+  - [RELEASE] bumped version
+  - [TASK] improved translation integration
+
 ## 0.4.1 (May 11, 2018)
   - [RELEASE] marked 0.4.1 as stable 
   - [BUGFIX] excluded external assets from compression
