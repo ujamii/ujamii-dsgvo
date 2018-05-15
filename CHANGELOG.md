@@ -1,3 +1,7 @@
+## 0.4.3 (May 15, 2018)
+  - [RELEASE] bumped version
+  - [BUGFIX] fixed order of query parts in v8 method
+
 ## 0.4.2 (May 14, 2018)
   - [RELEASE] bumped version
   - [TASK] improved translation integration
