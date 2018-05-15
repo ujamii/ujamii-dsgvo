@@ -106,18 +106,6 @@ class DbOperationsService {
 					break;
 			}
 
-			// add where part to skip handled records
-			foreach ($this->ctrlTimeFields as $ctrlField) {
-				if (! empty( $GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField] ) ) {
-					$queryBuilder->andWhere(
-						$queryBuilder->expr()->neq(
-							$GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField],
-							$queryBuilder->createNamedParameter( 0, \PDO::PARAM_INT )
-						)
-					);
-				}
-			}
-
 			// add custom where clause
 			if ( $tableConfig['andWhere'] ) {
 				$queryBuilder->andWhere( QueryHelper::stripLogicalOperatorPrefix( $tableConfig['andWhere'] ) );
@@ -131,6 +119,18 @@ class DbOperationsService {
 						$queryBuilder->createNamedParameter( 1, \PDO::PARAM_INT )
 					)
 				);
+			}
+
+			// add where part to skip handled records
+			foreach ($this->ctrlTimeFields as $ctrlField) {
+				if (! empty( $GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField] ) ) {
+					$queryBuilder->andWhere(
+						$queryBuilder->expr()->neq(
+							$GLOBALS['TCA'][ $table ]['ctrl'][$ctrlField],
+							$queryBuilder->createNamedParameter( 0, \PDO::PARAM_INT )
+						)
+					);
+				}
 			}
 
 			$result = $queryBuilder->execute();
