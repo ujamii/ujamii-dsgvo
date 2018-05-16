@@ -58,6 +58,14 @@ module.tx_ujamiidsgvo_dsgvocheck {
                         marketing_page_funnel = anonymized
                     }
                 }
+                tx_powermail_domain_model_answer {
+                    allDeleted = 1
+                    andWhere = crdate < UNIX_TIMESTAMP(DATE_SUB(now(), INTERVAL 6 MONTH))
+                    anonymize {
+                        deleted = 1
+                        value = anonymized
+                    }
+                }
             }
             formhandler {
                 tx_formhandler_log {
