@@ -1,4 +1,7 @@
 # ujamii-dsgvo
+
+[![Packagist](https://img.shields.io/packagist/v/ujamii/ujamii-dsgvo.svg?colorB=green&style=flat)](https://packagist.org/packages/ujamii/ujamii-geocoder)
+
 Data privacy/DSGVO compliance extension for TYPO3
 
 1. [Description](#description)
