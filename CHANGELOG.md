@@ -1,3 +1,10 @@
+## 1.0.0 (September 18, 2019)
+  - [FEATURE] Adding compatibility for TYPO3 v9
+  - [DOC] fixed packagist link
+  - [DOC] added packagist badge
+  - [TASK] PSR-1/2 code style
+  - [BUGFIX] added missing config for powermail table
+
 ## 0.4.3 (May 15, 2018)
   - [RELEASE] bumped version
   - [BUGFIX] fixed order of query parts in v8 method
