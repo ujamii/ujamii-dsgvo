@@ -3,7 +3,6 @@
 namespace Ujamii\UjamiiDsgvo\Service;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Database\Query\QueryHelper;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -66,11 +65,6 @@ class DbOperationsService
      */
     protected function getRecordCount($table, $tableConfig, $mode)
     {
-        //@deprecated, will be removed when 7.6 LTS end of life occurs
-        if (!GeneralUtility::compat_version('8.7.0')) {
-            return $this->getRecordCountLegacy($table, $tableConfig, $mode);
-        }
-
         if (!empty($GLOBALS['TCA'][$table])) {
             $queryBuilder = $this->getQueryBuilderForTable($table);
 
@@ -145,95 +139,6 @@ class DbOperationsService
             }
         }
 
-        return 0;
-    }
-
-    /**
-     * @see getRecordCount
-     * @deprecated, will be removed when 7.6 LTS end of life occurs
-     */
-    protected function getRecordCountLegacy($table, $tableConfig, $mode)
-    {
-        if (!empty($GLOBALS['TCA'][$table])) {
-            /* @var $db DatabaseConnection */
-            $db = $GLOBALS['TYPO3_DB'];
-
-            $where = '';
-            // add custom where clause
-            if ($tableConfig['andWhere']) {
-                $where .= '(' . $tableConfig['andWhere'] . ')';
-            }
-
-            // all deleted items?
-            if ($tableConfig['allDeleted'] && !empty($GLOBALS['TCA'][$table]['ctrl']['delete'])) {
-                if (!empty($where)) {
-                    $where .= ' OR';
-                }
-
-                $where .= ' ' . $table . '.' . $GLOBALS['TCA'][$table]['ctrl']['delete'] . ' = 1';
-            }
-
-            // add where part to skip handled records
-            $whereAnds = [];
-            foreach ($this->ctrlTimeFields as $ctrlField) {
-                if (!empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
-                    $whereAnds[] = $table . '.' . $GLOBALS['TCA'][$table]['ctrl'][$ctrlField] . ' != 0';
-                }
-            }
-            if (!empty($whereAnds)) {
-                if (!empty($where)) {
-                    $where = '(' . $where . ') AND ';
-                }
-                $where .= implode(' AND ', $whereAnds);
-            }
-
-            switch ($mode) {
-                default:
-                case self::MODE_SELECT:
-                    return $db->exec_SELECTcountRows(
-                        $tableConfig['select'] ?? 'uid',
-                        $table,
-                        $where
-                    );
-                    break;
-
-                case self::MODE_DELETE:
-                    $res = $db->exec_DELETEquery($table, $where);
-                    if (false !== $res) {
-                        return $db->sql_affected_rows();
-                    } else {
-                        return 0;
-                    }
-                    break;
-
-                case self::MODE_ANONYMIZE:
-                    if (empty($tableConfig['anonymize'])) {
-                        // may not be defined for certain tables, so skip this table then
-                        return 0;
-                    } else {
-                        $fieldsValues = $tableConfig['anonymize'];
-
-                        // set time values to 0 to "mark" handled records
-                        foreach ($this->ctrlTimeFields as $ctrlField) {
-                            if (!empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
-                                $fieldsValues[$GLOBALS['TCA'][$table]['ctrl'][$ctrlField]] = 0;
-                            }
-                        }
-
-                        $res = $db->exec_UPDATEquery(
-                            $table,
-                            $where,
-                            $fieldsValues
-                        );
-                        if (false !== $res) {
-                            return $db->sql_affected_rows();
-                        } else {
-                            return 0;
-                        }
-                    }
-                    break;
-            }
-        }
         return 0;
     }
 
