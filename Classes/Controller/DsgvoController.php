@@ -7,13 +7,8 @@ use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Ujamii\UjamiiDsgvo\Service\DbOperationsService;
 
-/**
- * Class DsgvoController
- * @package Ujamii\UjamiiDsgvo\Controller
- */
 class DsgvoController extends ActionController
 {
 
@@ -53,7 +48,7 @@ class DsgvoController extends ActionController
         $this->setTsConfig();
         parent::initializeAction();
 
-        $this->service = $this->objectManager->get('Ujamii\UjamiiDsgvo\Service\DbOperationsService');
+        $this->service = GeneralUtility::makeInstance(DbOperationsService::class);
         $this->service->setTsConfiguration($this->tsConfiguration);
     }
 
@@ -64,9 +59,9 @@ class DsgvoController extends ActionController
     {
         $this->view->assignMultiple([
             'recordsToDelete' => $this->service->getDbCheckResult(),
-            'page' => $this->pageUid,
-            'moduleToken' => $this->getToken(true),
-            'settings' => $this->tsConfiguration['settings'],
+            'page'            => $this->pageUid,
+            'moduleToken'     => $this->getToken(true),
+            'settings'        => $this->tsConfiguration['settings'],
         ]);
     }
 
