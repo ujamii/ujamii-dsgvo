@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ujamii\UjamiiDsgvo\:
+    resource: '../Classes/*'
+
+  Ujamii\UjamiiDsgvo\Command\CleanupCommand:
+    tags:
+      - name: 'console.command'
+        command: 'cleanup:cleandatabase'
+        schedulable: true

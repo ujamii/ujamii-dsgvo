@@ -79,7 +79,7 @@ the overview page.
 
 ### As CommandController on the shell
 
-A call like `typo3/cli_dispatch.phpsh extbase cleanup:cleandatabase --page-uid=1 --mode=select` will output something like:
+A call like `vendor/bin/typo3cms cleanup:cleandatabase --page-uid=1 --mode=select` will output something like:
 
 ```bash
 2018-04-06 17:27:01
