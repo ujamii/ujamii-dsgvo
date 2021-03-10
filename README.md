@@ -205,16 +205,6 @@ TODOs / Known issues
 
 Have a look at the [issues list on GitHub](https://github.com/ujamii/ujamii-dsgvo/issues).
 
-### Command controller is not available in CLI/Scheduler after installation of the extension
-If you do **NOT** use TYPO3 in composer mode and installed the extension via archive download, you may need to clear the autoloading
-cache of TYPO3 manually, after installing the extension in the extension manager. Do so by executing
-
-```shell
-php typo3/cli_dispatch.phpsh extbase extension:dumpclassloadinginformation
-# or
-rm -rf typo3temp/autoload/*
-```
-
 Icon credits
 -------------------------
 
