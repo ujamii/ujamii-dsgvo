@@ -4,11 +4,21 @@
 
 Data privacy/DSGVO compliance extension for TYPO3
 
-1. [Description](#description)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Extending the database cleaning](#extend-the-database-cleaning)
-5. [Credits](#icon-credits)
+1. [Version matrix](#versions)
+2. [Description](#description)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Extending the database cleaning](#extend-the-database-cleaning)
+6. [Credits](#icon-credits)
+
+## Versions
+
+| ujamii_dsgvo      | TYPO3          |
+|-------------------|----------------|
+| <= 1.0            | \>= 8.7 <= 9.5 |
+| \>= 2.0           | \>= 9.5 <11    |
+| \>= 3.0 (planned) | \>= 11         |
+
 
 Description
 -------------------------
@@ -46,7 +56,7 @@ Usage
 -------------------------
 
 1. [Data cleaning](#in-the-typo3-backend)
-2. [Cookie consent](#cookie-consent)
+2. [DEPRECATED! Cookie consent](#deprecated-cookie-consent)
 3. [Opt Out for Cookies](#opt-out-for-cookies)
 	1. [Google Analytics](#google-analytics)
 	2. [Matomo (Piwki)](#matomo-(formerly-piwik))
