@@ -1,3 +1,15 @@
+## 2.0.0 (March 15, 2021)
+  - Merge pull request #10 from ujamii/feature/compat-v10
+  - [DOC] added version overview
+  - [DOC] added deprecation note for cookie consent feature
+  - [DOC] cleaned up readme
+  - [TASK] updated command for v10/v11 compat
+  - [DOC] updated readme
+  - [CLEANUP] removed extension builder leftovers
+  - [TASK] updated be controller for v10/v11 compat
+  - [TASK] updated version constraints
+  - Update composer.json
+
 ## 1.0.0 (September 18, 2019)
   - [FEATURE] Adding compatibility for TYPO3 v9
   - [DOC] fixed packagist link
