@@ -138,8 +138,11 @@ module.tx_ujamiidsgvo_dsgvocheck {
 To see which tables are covered by default, take a look into the [pagets.ts](Configuration/TypoScript/pagets.ts).
 You may skip the `anonymize` part completely if you only want to really delete records for a certain table.
 
-Cookie consent
+DEPRECATED! Cookie consent
 -------------------------
+
+This feature is deprecated and will be removed in the next major version! If you need cookie management in TYPO3,
+use something like [Wacon Cookie Management](https://github.com/wacon-internet-gmbh/wacon_cookie_management).
 
 If you use cookies on your website, you will at least have to notify your users and provide an opt-out to cookies
 that are not essential to the website/service itself and/or contain some sort of private information of
