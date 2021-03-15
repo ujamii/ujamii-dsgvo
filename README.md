@@ -4,11 +4,21 @@
 
 Data privacy/DSGVO compliance extension for TYPO3
 
-1. [Description](#description)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Extending the database cleaning](#extend-the-database-cleaning)
-5. [Credits](#icon-credits)
+1. [Version matrix](#versions)
+2. [Description](#description)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Extending the database cleaning](#extend-the-database-cleaning)
+6. [Credits](#icon-credits)
+
+## Versions
+
+| ujamii_dsgvo      | TYPO3          |
+|-------------------|----------------|
+| <= 1.0            | \>= 8.7 <= 9.5 |
+| \>= 2.0           | \>= 9.5 <11    |
+| \>= 3.0 (planned) | \>= 11         |
+
 
 Description
 -------------------------
@@ -46,7 +56,7 @@ Usage
 -------------------------
 
 1. [Data cleaning](#in-the-typo3-backend)
-2. [Cookie consent](#cookie-consent)
+2. [DEPRECATED! Cookie consent](#deprecated-cookie-consent)
 3. [Opt Out for Cookies](#opt-out-for-cookies)
 	1. [Google Analytics](#google-analytics)
 	2. [Matomo (Piwki)](#matomo-(formerly-piwik))
@@ -79,7 +89,7 @@ the overview page.
 
 ### As CommandController on the shell
 
-A call like `typo3/cli_dispatch.phpsh extbase cleanup:cleandatabase --page-uid=1 --mode=select` will output something like:
+A call like `vendor/bin/typo3cms cleanup:cleandatabase --page-uid=1 --mode=select` will output something like:
 
 ```bash
 2018-04-06 17:27:01
@@ -138,8 +148,11 @@ module.tx_ujamiidsgvo_dsgvocheck {
 To see which tables are covered by default, take a look into the [pagets.ts](Configuration/TypoScript/pagets.ts).
 You may skip the `anonymize` part completely if you only want to really delete records for a certain table.
 
-Cookie consent
+DEPRECATED! Cookie consent
 -------------------------
+
+This feature is deprecated and will be removed in the next major version! If you need cookie management in TYPO3,
+use something like [Wacon Cookie Management](https://github.com/wacon-internet-gmbh/wacon_cookie_management).
 
 If you use cookies on your website, you will at least have to notify your users and provide an opt-out to cookies
 that are not essential to the website/service itself and/or contain some sort of private information of
@@ -204,16 +217,6 @@ TODOs / Known issues
 -------------------------
 
 Have a look at the [issues list on GitHub](https://github.com/ujamii/ujamii-dsgvo/issues).
-
-### Command controller is not available in CLI/Scheduler after installation of the extension
-If you do **NOT** use TYPO3 in composer mode and installed the extension via archive download, you may need to clear the autoloading
-cache of TYPO3 manually, after installing the extension in the extension manager. Do so by executing
-
-```shell
-php typo3/cli_dispatch.phpsh extbase extension:dumpclassloadinginformation
-# or
-rm -rf typo3temp/autoload/*
-```
 
 Icon credits
 -------------------------

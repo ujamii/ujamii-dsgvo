@@ -8,10 +8,6 @@ use TYPO3\CMS\Core\Database\Query\QueryHelper;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * Class DbOperationsService
- * @package Ujamii\UjamiiDsgvo\Service
- */
 class DbOperationsService
 {
 
@@ -65,7 +61,7 @@ class DbOperationsService
      */
     protected function getRecordCount($table, $tableConfig, $mode)
     {
-        if (!empty($GLOBALS['TCA'][$table])) {
+        if ( ! empty($GLOBALS['TCA'][$table])) {
             $queryBuilder = $this->getQueryBuilderForTable($table);
 
             // do not use enabled fields here
@@ -96,7 +92,7 @@ class DbOperationsService
 
                         // set time values to 0 to "mark" handled records
                         foreach ($this->ctrlTimeFields as $ctrlField) {
-                            if (!empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
+                            if ( ! empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
                                 $queryBuilder->set($GLOBALS['TCA'][$table]['ctrl'][$ctrlField], 0);
                             }
                         }
@@ -110,7 +106,7 @@ class DbOperationsService
             }
 
             // all deleted items?
-            if ($tableConfig['allDeleted'] && !empty($GLOBALS['TCA'][$table]['ctrl']['delete'])) {
+            if ($tableConfig['allDeleted'] && ! empty($GLOBALS['TCA'][$table]['ctrl']['delete'])) {
                 $queryBuilder->orWhere(
                     $queryBuilder->expr()->eq(
                         $GLOBALS['TCA'][$table]['ctrl']['delete'],
@@ -121,7 +117,7 @@ class DbOperationsService
 
             // add where part to skip handled records
             foreach ($this->ctrlTimeFields as $ctrlField) {
-                if (!empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
+                if ( ! empty($GLOBALS['TCA'][$table]['ctrl'][$ctrlField])) {
                     $queryBuilder->andWhere(
                         $queryBuilder->expr()->neq(
                             $GLOBALS['TCA'][$table]['ctrl'][$ctrlField],
