@@ -17,7 +17,6 @@ page {
     includeJSFooterlibs {
         cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.js
         cookie-consent {
-            external = 1
             excludeFromConcatenation = 1
             disableCompression = 1
         }
@@ -25,7 +24,6 @@ page {
     includeCSS {
         cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.js
         cookie-consent {
-            external = 1
             excludeFromConcatenation = 1
             disableCompression = 1
         }
