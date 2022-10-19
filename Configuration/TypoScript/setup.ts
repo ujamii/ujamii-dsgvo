@@ -15,17 +15,15 @@ module.tx_ujamiidsgvo_dsgvocheck {
 
 page {
     includeJSFooterlibs {
-        cookie-consent = //cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js
+        cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.js
         cookie-consent {
-            external = 1
             excludeFromConcatenation = 1
             disableCompression = 1
         }
     }
     includeCSS {
-        cookie-consent = //cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css
+        cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.css
         cookie-consent {
-            external = 1
             excludeFromConcatenation = 1
             disableCompression = 1
         }
