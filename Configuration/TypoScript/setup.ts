@@ -22,7 +22,7 @@ page {
         }
     }
     includeCSS {
-        cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.js
+        cookie-consent = typo3conf/ext/ujamii_dsgvo/Resources/Public/Assets/cookieconsent.min.css
         cookie-consent {
             excludeFromConcatenation = 1
             disableCompression = 1
